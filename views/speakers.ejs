@@ -1,0 +1,45 @@
+<%- include('includes/nav.ejs') %>
+
+<div class="row">
+    &nbsp;
+</div>
+<div class="row contact">
+    <div class="col-6">
+        <div class="headingbook">
+            <center>
+                <h2>SPEAKERS</h2>
+            </center>
+        </div>
+        <div class="row books">
+            <% speakers.forEach(speaker => { %>
+            <div class="col-6 btnregister">
+                <center>
+                    <a href="/speaker/<%= speaker.id %>">
+                        <p style="margin-bottom: 5px;"><%= speaker.workplace %></p>
+                        <div class="rupees">
+                            <span> <%= speaker.name %></span>
+                        </div>
+                    </a>
+                    <a href="/speaker/delete/<%= speaker.id %>"><input type="submit" name="btnsubmit"
+                            value="delete"></a>
+                </center>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="col-6 contactform">
+        <form action="/speakers" method="post">
+            <h2>Registration</h2>
+            <input type="text" name="name" placeholder="Enter name"><br><br>
+            <input type="text" name="title" placeholder="Enter title"><br><br>
+            <input type="text" name="workplace" placeholder="Enter workplace"><br><br>
+            <textarea placeholder="About yourself" rows="7" name="about"></textarea>
+            <div class="btnregister">
+                <input type="submit" id="btnsubmit" style="height: 50px; margin-top:10px; font-size:20px;">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

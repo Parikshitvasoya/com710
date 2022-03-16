@@ -1,0 +1,38 @@
+<%- include('includes/nav.ejs') %>
+<div class="row">
+    &nbsp;
+</div>
+<div class="row contact">
+    <div class="col-6">
+        <div class="headingbook">
+            <center>
+                <h2> <%= speaker.name %> </h2>
+            </center>
+        </div>
+        <div class="row books">
+            <center>
+                <p><%= speaker.workplace %></p>
+                <div class="rupees">
+                    <span><%= speaker.title %></span>
+                </div>
+                <span> <%= speaker.about %> </span>
+            </center>
+        </div>
+    </div>
+    <div class="col-6 contactform">
+        <form action="/speaker/update/<%= speaker.id %>" method="post">
+            <h2>Update data</h2>
+            <input type="text" name="name" placeholder="Enter name" value="<%= speaker.name %>"><br><br>
+            <input type="text" name="title" placeholder="Enter title" value="<%= speaker.title %>"><br><br>
+            <input type="text" name="workplace" placeholder="Enter workplace" value="<%= speaker.workplace %>"><br><br>
+            <textarea placeholder="About yourself" rows="7" name="about"> <%= speaker.about %> </textarea>
+            <div class="btnregister">
+                <input type="submit" id="btnsubmit" style="height: 50px; margin-top:10px; font-size:20px;"
+                    value="Update">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
